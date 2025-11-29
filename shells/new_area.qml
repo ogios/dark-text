@@ -15,6 +15,7 @@ ShellRoot {
             anchors.left: true
             anchors.right: true
             color: "#00000000"
+            exclusionMode: ExclusionMode.Ignore
 
             Rectangle {
                 id: myRectangle
