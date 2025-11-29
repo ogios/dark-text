@@ -36,8 +36,6 @@ ShellRoot {
                     anchors.verticalCenter: parent.verticalCenter
                     style: TextRaised
                     styleColor: "#33000000"
-
-
                 }
 
                 Canvas {
@@ -56,14 +54,13 @@ ShellRoot {
 
                         var grad = ctx.createLinearGradient(0, 0, width, 0);
                         grad.addColorStop(0.0, "transparent");
-                        grad.addColorStop(0.15, color);  
-                        grad.addColorStop(0.85, color);  
+                        grad.addColorStop(0.15, color);
+                        grad.addColorStop(0.85, color);
                         grad.addColorStop(1.0, "transparent");
 
                         ctx.fillStyle = grad;
                         ctx.fillRect(0, height / 2 - 1, width, 2);
                     }
-
                 }
 
                 Component.onCompleted: {
@@ -129,7 +126,7 @@ ShellRoot {
                             if (this.text && this.text.trim() !== "") {
                                 mainText.color = this.text.trim();
                                 underline.color = this.text.trim();
-                                console.log(underline.color)
+                                console.log(underline.color);
                             }
                         }
                     }

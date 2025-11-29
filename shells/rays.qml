@@ -39,7 +39,7 @@ ShellRoot {
                     anchors.verticalCenter: parent.verticalCenter
                 }
             }
-            
+
             Rectangle {
                 id: shaderRectangle
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -77,13 +77,13 @@ ShellRoot {
                     running: true
                     command: ["sh", "-c", "echo $DARK_DURATION"]
                     stdout: StdioCollector {
-                      onStreamFinished: {
-                        if (this.text && this.text.trim() !== "" ){
-                            root.animationDuration = parseInt(this.text);
-                            textShaderAnimation.to = parseInt(this.text) / 1000;
-                            textShaderAnimation.duration = parseInt(this.text);
+                        onStreamFinished: {
+                            if (this.text && this.text.trim() !== "") {
+                                root.animationDuration = parseInt(this.text);
+                                textShaderAnimation.to = parseInt(this.text) / 1000;
+                                textShaderAnimation.duration = parseInt(this.text);
+                            }
                         }
-                      }
                     }
                 }
 
@@ -91,12 +91,12 @@ ShellRoot {
                     running: true
                     command: ["sh", "-c", "echo $DARK_COLOR"]
                     stdout: StdioCollector {
-                      onStreamFinished: {
-                        if (this.text && this.text.trim() !== ""){
-                            console.log(this.text)
-                            mainText.color = this.text.trim();
+                        onStreamFinished: {
+                            if (this.text && this.text.trim() !== "") {
+                                console.log(this.text);
+                                mainText.color = this.text.trim();
+                            }
                         }
-                      }
                     }
                 }
 
@@ -104,15 +104,14 @@ ShellRoot {
                     running: true
                     command: ["sh", "-c", "echo $TEXT_SHADER"]
                     stdout: StdioCollector {
-                      onStreamFinished: {
-                        if (this.text && this.text.trim() !== ""){
-                            console.log(this.text)
-                            textShader.fragmentShader = this.text.trim();
+                        onStreamFinished: {
+                            if (this.text && this.text.trim() !== "") {
+                                console.log(this.text);
+                                textShader.fragmentShader = this.text.trim();
+                            }
                         }
-                      }
                     }
                 }
-
 
                 // Provide a ShaderEffectSource so the ShaderEffect can sample the Image.
                 ShaderEffectSource {
